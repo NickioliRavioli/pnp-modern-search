@@ -32,9 +32,16 @@
     <div class="template">
 
         {{#if @root.properties.showSelectedFilters}}
-        <pnp-selectedfilters data-filters="{{JSONstringify filters.selectedFilters 2}}" data-filters-configuration="{{JSONstringify filters.filtersConfiguration 2}}" data-instance-id="{{filters.instanceId}}" data-operator="{{filters.filterOperator}}" data-theme-variant="{{JSONstringify @root.theme}}">
+        <pnp-selectedfilters 
+            data-filters="{{JSONstringify filters.selectedFilters 2}}" 
+            data-filters-configuration="{{JSONstringify filters.filtersConfiguration 2}}" 
+            data-instance-id="{{filters.instanceId}}" 
+            data-operator="{{filters.filterOperator}}" 
+            data-theme-variant="{{JSONstringify @root.theme}}"
+            >
         </pnp-selectedfilters>
         {{/if}}
+
         <div class="template--header">
             {{#if @root.properties.showResultsCount}}
                 <div class="template--resultCount">
@@ -51,6 +58,8 @@
                 </pnp-sortfield>    
             </div>
         </div>
+
+
         {{#if @root.data.promotedResults}}
         <ul class="template--defaultList template--promotedResults">
             {{#each @root.data.promotedResults as |promotedResult|}}
@@ -66,6 +75,8 @@
             {{/each}}
         </ul>
         {{/if}}
+
+        
         <ul class="template--defaultList">
             {{#each data.items as |item|}}
                 <pnp-select 
