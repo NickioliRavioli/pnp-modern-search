@@ -76,14 +76,14 @@ export default class SearchVerticalsContainer extends React.Component<ISearchVer
     });
 
     return  <>
-              {renderTitle}
-              <Pivot                
-                className={styles.dataVerticals}
-                onLinkClick={this.onVerticalSelected}
-                selectedKey={this.state.selectedKey}
-                theme={this.props.themeVariant as ITheme}>
-                {renderPivotItems}
-              </Pivot>
+              {/* {renderTitle} */}
+                <Pivot                
+                  className={styles.dataVerticals}
+                  onLinkClick={this.onVerticalSelected}
+                  selectedKey={this.state.selectedKey}
+                  theme={this.props.themeVariant as ITheme}>
+                  {renderPivotItems}
+                </Pivot>
             </>;
   }
 

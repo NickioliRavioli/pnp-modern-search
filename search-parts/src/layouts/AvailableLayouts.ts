@@ -71,11 +71,11 @@ export class AvailableLayouts {
             serviceKey: null // ServiceKey will be created dynamically for builtin layout
         },
         {
-            name: strings.Layouts.DetailsList.Name,
+            name: "Responsive",
             iconName: 'Table',
             key: BuiltinLayoutsKeys.DetailsList,
             type: LayoutType.Results,
-            templateContent: require('./results/detailsList/details-list.html'),
+            templateContent: require('./results/detailsList/SearchResultsTemplate.html'),
             renderType: LayoutRenderType.Handlebars,
             serviceKey: null// ServiceKey will be created dynamically for builtin layout
         },
