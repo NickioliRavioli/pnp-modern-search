@@ -15,7 +15,7 @@ import { Constants, AutoCalculatedDataSourceFields, TestConstants } from '../../
 import { ITemplateSlot } from '@pnp/modern-search-extensibility';
 import { ObjectHelper } from '../../../helpers/ObjectHelper';
 import { BuiltinLayoutsKeys } from '../../../layouts/AvailableLayouts';
-import { WebPartTitle } from '@pnp/spfx-controls-react/lib/WebPartTitle';
+// import { WebPartTitle } from '@pnp/spfx-controls-react/lib/WebPartTitle';
 import * as webPartStrings from 'SearchResultsWebPartStrings';
 
 const LogSource = "SearchResultsContainer";
@@ -86,20 +86,20 @@ export default class SearchResultsContainer extends React.Component<ISearchResul
         let renderTemplate: JSX.Element = null;
         let renderOverlay: JSX.Element = null;
         let templateContent: string = null;
-        let renderTitle: JSX.Element = null;
+        // let renderTitle: JSX.Element = null;
         let renderInfoMessage: JSX.Element = null;
 
         // Web Part title
-        renderTitle = <div data-ui-test-id={TestConstants.SearchResultsWebPartTitle}>
-            <WebPartTitle
-                displayMode={this.props.webPartTitleProps.displayMode}
-                title={this.props.webPartTitleProps.title}
-                updateProperty={this.props.webPartTitleProps.updateProperty}
-                moreLink={this.props.webPartTitleProps.moreLink}
-                themeVariant={this.props.webPartTitleProps.themeVariant}
-                className={this.props.webPartTitleProps.className}
-            />
-        </div>;
+        // renderTitle = <div data-ui-test-id={TestConstants.SearchResultsWebPartTitle}>
+        //     <WebPartTitle
+        //         displayMode={this.props.webPartTitleProps.displayMode}
+        //         title={this.props.webPartTitleProps.title}
+        //         updateProperty={this.props.webPartTitleProps.updateProperty}
+        //         moreLink={this.props.webPartTitleProps.moreLink}
+        //         themeVariant={this.props.webPartTitleProps.themeVariant}
+        //         className={this.props.webPartTitleProps.className}
+        //     />
+        // </div>;
 
         // Content loading
         templateContent = this.templateService.getTemplateMarkup(this.props.templateContent);
@@ -139,7 +139,7 @@ export default class SearchResultsContainer extends React.Component<ISearchResul
                 } else {
 
                     // Display Mode
-                    renderTitle = null;
+                    // renderTitle = null;
                     renderTemplate = null;
                 }
             }
@@ -189,7 +189,7 @@ export default class SearchResultsContainer extends React.Component<ISearchResul
             <div tabIndex={-1} ref={(ref) => { this._searchWebPartRef = ref; }}></div>
             {renderOverlay}
             {renderInfoMessage}
-            {renderTitle}
+            {/* {renderTitle} */}
             {errorTemplate}
             {renderTemplate}
         </div></main>;
