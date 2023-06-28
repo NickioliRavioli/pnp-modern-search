@@ -82,4 +82,21 @@ export interface ISearchBoxWebPartProps extends IBaseWebPartProps {
      * The extensibility configuraion to load
      */
     extensibilityLibraryConfiguration: IExtensibilityConfiguration[];
+
+
+    /**
+     * Enables/Disables rediect link
+     */
+    enableRedirectLink: boolean;
+
+    /**
+     * Redirect link URL
+     */
+    redirectLinkURL: string;
+
+    /**
+     * Text used for the redirect link
+     */
+    redirectLinkText: string;
+
 }

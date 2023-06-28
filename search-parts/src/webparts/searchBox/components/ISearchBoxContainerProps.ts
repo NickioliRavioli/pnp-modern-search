@@ -80,4 +80,21 @@ export interface ISearchBoxContainerProps {
     themeVariant: IReadonlyTheme | undefined;
 
     tokenService: ITokenService;
+
+    
+    /**
+     * Enables/Disables rediect link
+     */
+    enableRedirectLink: boolean;
+
+
+    /**
+     * Redirect link URL
+     */
+    redirectLinkURL: string;
+
+    /**
+     * Text used for the redirect link
+     */
+    redirectLinkText: string;
 }

@@ -194,7 +194,10 @@ export default class SearchBoxWebPart extends BaseWebPart<ISearchBoxWebPartProps
             onSearch: this._onSearch,
             suggestionProviders: this._selectedCustomProviders,
             numberOfSuggestionsPerGroup: this.properties.numberOfSuggestionsPerGroup,
-            tokenService: this.tokenService
+            tokenService: this.tokenService,
+            enableRedirectLink: this.properties.enableRedirectLink,
+            redirectLinkText: this.properties.redirectLinkText,
+            redirectLinkURL: this.properties.redirectLinkURL
         } as ISearchBoxContainerProps);
 
         // Error message
@@ -351,6 +354,8 @@ export default class SearchBoxWebPart extends BaseWebPart<ISearchBoxWebPartProps
             await this.loadExtensions(cleanConfiguration);
         }
 
+        
+
         this._bindHashChange();
     }
 
@@ -495,6 +500,9 @@ export default class SearchBoxWebPart extends BaseWebPart<ISearchBoxWebPartProps
             }),
             PropertyPaneToggle("reQueryOnClear", {
                 label: webPartStrings.PropertyPane.SearchBoxSettingsGroup.ReQueryOnClearLabel
+            }),
+            PropertyPaneToggle("enableRedirectLink", {
+                label: "Enable redirect link"
             })
         ];
 
@@ -549,6 +557,23 @@ export default class SearchBoxWebPart extends BaseWebPart<ISearchBoxWebPartProps
                         }
                         return '';
                     }
+                })
+            ]);
+        }
+
+        if (this.properties.enableRedirectLink) {
+            searchBehaviorOptionsFields = searchBehaviorOptionsFields.concat([
+                PropertyPaneTextField('redirectLinkText', {
+                    label: "Redirect link Title",
+                    multiline: false,
+                    placeholder: 'Go to...'
+                }),
+                PropertyPaneTextField('redirectLinkURL', {
+                    label: "Redirect link URL",
+                    onGetErrorMessage: this._validatePageUrl.bind(this),
+                    validateOnFocusOut: true,
+                    validateOnFocusIn: true,
+                    placeholder: 'https://...'
                 })
             ]);
         }

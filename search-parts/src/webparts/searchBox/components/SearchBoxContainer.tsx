@@ -81,6 +81,13 @@ export default class SearchBoxContainer extends React.Component<ISearchBoxContai
         );
     }
 
+    private renderClassicSearch(): JSX.Element {
+        return(
+            // <a href="https://dbctcomau.sharepoint.com/sites/CDC/SitePages/Home.aspx">Go to classic search...</a>
+            <a href={this.props.redirectLinkURL}>{this.props.redirectLinkText}</a>
+        )
+    }
+    
     /**
      * Handler when a user enters new keywords
      * @param queryText The query text entered by the user
@@ -164,10 +171,14 @@ export default class SearchBoxContainer extends React.Component<ISearchBoxContai
         const renderSearchBox = this.props.enableQuerySuggestions ?
             this.renderSearchBoxWithAutoComplete() :
             this.renderBasicSearchBox();
+
+        const redirectLink = this.props.enableRedirectLink ?
+            this.renderClassicSearch() : null;
         return (
             <div className={styles.searchBox}>
                 {renderErrorMessage}
                 {renderSearchBox}
+                {redirectLink}
             </div>
         );
     }
