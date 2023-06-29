@@ -725,20 +725,20 @@ export default class SearchResultsWebPart extends BaseWebPart<ISearchResultsWebP
         }
 
         // Detect if the layout has been changed to custom
-        if (propertyPath.localeCompare('inlineTemplateContent') === 0) {
+        // if (propertyPath.localeCompare('inlineTemplateContent') === 0) {
 
-            // Automatically switch the option to 'Custom' if a default template has been edited
-            // (meaning the user started from a default template)
-            if (this.properties.inlineTemplateContent && (this.properties.selectedLayoutKey !== BuiltinLayoutsKeys.ResultsCustomHandlebars || BuiltinLayoutsKeys.ResultsCustomAdaptiveCards)) {
-                this.properties.selectedLayoutKey = this.properties.layoutRenderType === LayoutRenderType.Handlebars ? BuiltinLayoutsKeys.ResultsCustomHandlebars : BuiltinLayoutsKeys.ResultsCustomAdaptiveCards;
+        //     // Automatically switch the option to 'Custom' if a default template has been edited
+        //     // (meaning the user started from a default template)
+        //     if (this.properties.inlineTemplateContent && (this.properties.selectedLayoutKey !== BuiltinLayoutsKeys.ResultsCustomHandlebars || BuiltinLayoutsKeys.ResultsCustomAdaptiveCards)) {
+        //         this.properties.selectedLayoutKey = this.properties.layoutRenderType === LayoutRenderType.Handlebars ? BuiltinLayoutsKeys.ResultsCustomHandlebars : BuiltinLayoutsKeys.ResultsCustomAdaptiveCards;
 
-                // Reset also the template URL
-                this.properties.externalTemplateUrl = '';
+        //         // Reset also the template URL
+        //         this.properties.externalTemplateUrl = '';
 
-                // Reset the layout options (otherwise we stay with the previous layout options)
-                this.context.propertyPane.refresh();
-            }
-        }
+        //         // Reset the layout options (otherwise we stay with the previous layout options)
+        //         this.context.propertyPane.refresh();
+        //     }
+        // }
 
         // Notify data source a property has been updated (only if the data source is already selected)
         if ((propertyPath.localeCompare('dataSourceKey') !== 0) && this.dataSource) {
