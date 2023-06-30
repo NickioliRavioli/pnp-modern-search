@@ -1234,7 +1234,7 @@ export default class SearchResultsWebPart extends BaseWebPart<ISearchResultsWebP
      */
     private getStylingPageGroups(): IPropertyPaneGroup[] {
 
-        const canEditTemplate = this.properties.externalTemplateUrl && (this.properties.selectedLayoutKey === BuiltinLayoutsKeys.ResultsCustomHandlebars || this.properties.selectedLayoutKey === BuiltinLayoutsKeys.ResultsCustomAdaptiveCards) ? false : true;
+        // const canEditTemplate = this.properties.externalTemplateUrl && (this.properties.selectedLayoutKey === BuiltinLayoutsKeys.ResultsCustomHandlebars || this.properties.selectedLayoutKey === BuiltinLayoutsKeys.ResultsCustomAdaptiveCards) ? false : true;
 
         let stylingFields: IPropertyPaneField<any>[] = [
             new PropertyPaneTabsField('layoutRenderType', {
@@ -1290,7 +1290,7 @@ export default class SearchResultsWebPart extends BaseWebPart<ISearchResultsWebP
                 deferredValidationTime: 500,
                 onPropertyChange: this.onPropertyPaneFieldChanged.bind(this),
                 properties: this.properties,
-                disabled: !canEditTemplate,
+                // disabled: !canEditTemplate,
                 key: 'inlineTemplateContentCodeEditor',
                 language: this.properties.layoutRenderType !== LayoutRenderType.Handlebars ? this._propertyFieldCodeEditorLanguages.JSON : this._propertyFieldCodeEditorLanguages.Handlebars
             }),
@@ -2183,8 +2183,8 @@ export default class SearchResultsWebPart extends BaseWebPart<ISearchResultsWebP
         // Gets the template content according to the selected key
         const selectedLayoutTemplateContent = this.availableLayoutDefinitions.filter(layout => { return layout.key === this.properties.selectedLayoutKey; })[0].templateContent;
 
-        if (this.properties.selectedLayoutKey === BuiltinLayoutsKeys.ResultsCustomHandlebars ||
-            this.properties.selectedLayoutKey === BuiltinLayoutsKeys.ResultsCustomAdaptiveCards) {
+        // if (this.properties.selectedLayoutKey === BuiltinLayoutsKeys.ResultsCustomHandlebars ||
+        //     this.properties.selectedLayoutKey === BuiltinLayoutsKeys.ResultsCustomAdaptiveCards) {
 
             if (this.properties.externalTemplateUrl) {
                 let fileFormat: FileFormat = this.properties.layoutRenderType === LayoutRenderType.AdaptiveCards ? FileFormat.Json : FileFormat.Text;
@@ -2193,9 +2193,9 @@ export default class SearchResultsWebPart extends BaseWebPart<ISearchResultsWebP
                 this.templateContentToDisplay = this.properties.inlineTemplateContent ? this.properties.inlineTemplateContent : selectedLayoutTemplateContent;
             }
 
-        } else {
-            this.templateContentToDisplay = selectedLayoutTemplateContent;
-        }
+        // } else {
+        //     this.templateContentToDisplay = selectedLayoutTemplateContent;
+        // }
 
         // Register result types inside the template      
         if (this.properties.layoutRenderType === LayoutRenderType.Handlebars && this.templateService) {
