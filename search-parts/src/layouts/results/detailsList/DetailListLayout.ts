@@ -30,7 +30,7 @@ export interface IDetailsListLayoutProperties {
     /**
      * The template view to use (locale ID)
      */
-    selectedTemplateViewId: number;
+    SelectedView: string;
 
     /**
      * The field used to defined the maxWidth controlling the switch between DetailList and Card views
@@ -133,7 +133,7 @@ export class DetailsListLayout extends BaseLayout<IDetailsListLayoutProperties> 
 
     public async onInit(): Promise<void> {
 
-        this.properties.selectedTemplateViewId = this.properties.selectedTemplateViewId != null ? this.properties.selectedTemplateViewId : 0;
+        this.properties.SelectedView = this.properties.SelectedView ? this.properties.SelectedView : 'Simple List';
 
         this.properties.responsiveWidth = this.properties.responsiveWidth != null ? this.properties.responsiveWidth : "640";
 
@@ -271,7 +271,7 @@ export class DetailsListLayout extends BaseLayout<IDetailsListLayoutProperties> 
                     key: "Simple List",
                     text: "Simple List"
                 } as IPropertyPaneDropdownOption],
-                selectedKey: this.properties.selectedTemplateViewId ? this.properties.selectedTemplateViewId : "Details List"
+                selectedKey: this.properties.SelectedView
             }),
 
             PropertyPaneTextField('layoutProperties.responsiveWidth', {
