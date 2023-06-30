@@ -559,7 +559,10 @@ export class SharePointSearchDataSource extends BaseDataSource<ISharePointSearch
             {
                 slotName: BuiltinTemplateSlots.UserEmail,
                 slotField: 'UserName'
-            }
+            {
+                slotName: "DateIssued",
+                slotField: 'DateIssuedOWSDATE'
+            },
         ];
     }
 
@@ -599,7 +602,8 @@ export class SharePointSearchDataSource extends BaseDataSource<ISharePointSearch
                 'CreatedBy',
                 'HtmlFileType',
                 'SiteLogo',
-                'PictureThumbnailURL'
+                'PictureThumbnailURL',
+                'DateIssuedOWSDATE'
             ];
         this.properties.resultSourceId = this.properties.resultSourceId !== undefined ? this.properties.resultSourceId : BuiltinSourceIds.LocalSharePointResults;
         this.properties.hitHighlightedProperties = this.properties.hitHighlightedProperties ? this.properties.hitHighlightedProperties : '';
