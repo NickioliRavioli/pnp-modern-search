@@ -601,7 +601,13 @@ export class TemplateService implements ITemplateService {
         // <p>{{getSummary HitHighlightedSummary}}</p>
         this.Handlebars.registerHelper("getSummary", (hitHighlightedSummary: string) => {
             if (!isEmpty(hitHighlightedSummary)) {
-                return new this.Handlebars.SafeString(hitHighlightedSummary.replace(/<c0\>/g, "<strong>").replace(/<\/c0\>/g, "</strong>").replace(/<ddd\/>/g, "&#8230;").replace(/\w+-\w+-\w+-\w+-\w+/g, ""));
+                const wholeSummaryHighlighted = hitHighlightedSummary.match(/(?:<c0>+[\w\d.]+<\/c0>+|<ddd\/>|[\w\d]+)/g)
+                .every(word => word.includes("<c0>") ||  word.includes("</c0>") || word.includes("<ddd/>"))
+                if(wholeSummaryHighlighted){
+                    return new this.Handlebars.SafeString(hitHighlightedSummary.replace(/<c0\>/g, "").replace(/<\/c0\>/g, "").replace(/<ddd\/>/g, "").replace(/\w+-\w+-\w+-\w+-\w+/g, ""));
+                } else {
+                    return new this.Handlebars.SafeString(hitHighlightedSummary.replace(/<c0\>/g, "<strong>").replace(/<\/c0\>/g, "</strong>").replace(/<ddd\/>/g, "&#8230;").replace(/\w+-\w+-\w+-\w+-\w+/g, ""));
+                }
             }
         });
 
