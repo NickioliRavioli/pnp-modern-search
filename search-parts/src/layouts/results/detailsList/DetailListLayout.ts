@@ -508,7 +508,6 @@ export class DetailsListLayout extends BaseLayout<IDetailsListLayoutProperties> 
             PropertyPaneHorizontalRule()
 
         ];
-
         
         // Show file icon
         if (this.properties.showFileIcon) {
