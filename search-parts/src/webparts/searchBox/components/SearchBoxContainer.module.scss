@@ -2,9 +2,19 @@
 
   position: relative;
 
+  .searchBoxRedirectWrapper{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 5px;
+  }
+
   .searchBoxWrapper {
       display: flex;
       border: 1px solid #c2c2c2;
+      flex: auto;
 
       &:hover {
         border-color: #272727;
@@ -127,4 +137,28 @@
 .parentStackingCtx {
   position: relative;
   z-index: 1;
+}
+
+.rediectAnchorWapper{
+    display: contents;      
+}
+
+.rediectButton {
+    // border-radius: 5px;
+    border-width: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    white-space: nowrap;
+    background: #03787c;
+    color: #ffffff;
+    
+    background: '[theme:primaryButtonBackground, default:#0078d7]';
+    &:hover {
+        background: '[theme:primaryButtonBackgroundHovered, default:#0078d7]';
+    }
+    
+    color: '[theme:primaryButtonText, default:#ffffff]';
+    &:hover {
+        color: '[theme:primaryButtonTextHovered, default:#ffffff]';
+    }
 }

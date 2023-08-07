@@ -84,7 +84,9 @@ export default class SearchBoxContainer extends React.Component<ISearchBoxContai
     private renderClassicSearch(): JSX.Element {
         return(
             // <a href="https://dbctcomau.sharepoint.com/sites/CDC/SitePages/Home.aspx">Go to classic search...</a>
-            <a href={this.props.redirectLinkURL}>{this.props.redirectLinkText}</a>
+            <a href={this.props.redirectLinkURL} className={styles.rediectAnchorWapper}>
+                <button type="button" className={styles.rediectButton}>{this.props.redirectLinkText}</button>
+            </a>
         )
     }
     
@@ -177,8 +179,10 @@ export default class SearchBoxContainer extends React.Component<ISearchBoxContai
         return (
             <div className={styles.searchBox}>
                 {renderErrorMessage}
-                {renderSearchBox}
-                {redirectLink}
+                <div className={styles.searchBoxRedirectWrapper}>
+                    {renderSearchBox}
+                    {redirectLink}
+                </div>
             </div>
         );
     }
