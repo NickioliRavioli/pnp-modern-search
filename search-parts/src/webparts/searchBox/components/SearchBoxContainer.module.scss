@@ -11,11 +11,16 @@
     gap: 5px;
   }
 
+  @media screen and (max-width: 640px) {
+    .searchBoxRedirectWrapper{
+        flex-direction: column;
+    }
+  }
+
   .searchBoxWrapper {
       display: flex;
       border: 1px solid #c2c2c2;
       flex: auto;
-
       &:hover {
         border-color: #272727;
       }
@@ -143,6 +148,8 @@
     display: contents;      
 }
 
+
+
 .rediectButton {
     // border-radius: 5px;
     border-width: 0;
@@ -160,5 +167,12 @@
     color: '[theme:primaryButtonText, default:#ffffff]';
     &:hover {
         color: '[theme:primaryButtonTextHovered, default:#ffffff]';
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .rediectButton{
+        height: 2em;
+        align-self: flex-end;
     }
 }

@@ -82,6 +82,7 @@ export default class SearchBoxContainer extends React.Component<ISearchBoxContai
     }
 
     private renderClassicSearch(): JSX.Element {
+        if(this.props.redirectLinkText == "") return null;
         return(
             // <a href="https://dbctcomau.sharepoint.com/sites/CDC/SitePages/Home.aspx">Go to classic search...</a>
             <a href={this.props.redirectLinkURL} className={styles.rediectAnchorWapper}>
