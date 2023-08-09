@@ -118,6 +118,8 @@ export interface ISharePointSearchDataSourceProperties {
      * "true" to remove the duplicate items; otherwise, false. The default value is true.
      */
     trimDuplicates: boolean;
+
+    startHidden: boolean;
 }
 
 export class SharePointSearchDataSource extends BaseDataSource<ISharePointSearchDataSourceProperties> {
@@ -422,6 +424,9 @@ export class SharePointSearchDataSource extends BaseDataSource<ISharePointSearch
                         label: commonStrings.DataSources.SharePointSearch.EnableQueryRulesLabel,
                         checked: this.properties.enableQueryRules,
                     }),
+                    PropertyPaneToggle('dataSourceProperties.startHidden', {
+                        label: "Start hidden before a search query"
+                    }),
                     PropertyPaneToggle('dataSourceProperties.trimDuplicates', {
                         label: commonStrings.DataSources.SharePointSearch.TrimDuplicates
                     }),
@@ -599,6 +604,7 @@ export class SharePointSearchDataSource extends BaseDataSource<ISharePointSearch
             ];
         this.properties.resultSourceId = this.properties.resultSourceId !== undefined ? this.properties.resultSourceId : BuiltinSourceIds.LocalSharePointResults; 
         this.properties.hitHighlightedProperties = this.properties.hitHighlightedProperties ? this.properties.hitHighlightedProperties : '';
+        this.properties.startHidden =  this.properties.startHidden !== undefined ? this.properties.startHidden : false;
         this.properties.trimDuplicates =  this.properties.trimDuplicates !== undefined ? this.properties.trimDuplicates : false;
         
         if (this.properties.sortList !== undefined) {

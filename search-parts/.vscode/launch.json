@@ -8,8 +8,8 @@
       "name": "Local workbench",
       "type": "chrome",
       "request": "launch",
-      "url": "https://localhost:4321/temp/workbench.html",
-      "webRoot": "${workspaceRoot}",
+      "url": "https://dbctcomau.sharepoint.com/_layouts/workbench.aspx",
+      "webRoot": "${workspaceFolder}",
       "sourceMaps": true,
       "sourceMapPathOverrides": {
         "webpack:///.././src/*": "${webRoot}/src/*",
@@ -18,7 +18,8 @@
         "webpack:///../../../../../src/*": "${webRoot}/src/*"
       },
       "runtimeArgs": [
-        "--remote-debugging-port=9222"
+        // "--remote-debugging-port=9222",
+        "-–profile-directory=Profile 2"
       ]
     },
     {
