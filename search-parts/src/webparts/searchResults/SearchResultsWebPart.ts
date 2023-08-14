@@ -457,40 +457,55 @@ export default class SearchResultsWebPart extends BaseWebPart<ISearchResultsWebP
         }
 
         // Check if hidden before initial search 
-        if (renderRootElement.props.dataSource.properties.startHidden && GlobalSettings.getValue(BuiltinTokenNames.inputQueryText) === undefined) {
-            // Remove the blank space introduced by the control zone when the Web Part displays nothing
-            // WARNING: in theory, we are not supposed to touch DOM outside of the Web Part root element, This will break if the page attribute change
-            const parentControlZone = this.getParentControlZone();
+        try{
+            if (renderRootElement != null 
+                && renderRootElement.props.dataSource?.properties?.startHidden
+                && GlobalSettings.getValue(BuiltinTokenNames.inputQueryText) === undefined) {
+                // Remove the blank space introduced by the control zone when the Web Part displays nothing
+                // WARNING: in theory, we are not supposed to touch DOM outside of the Web Part root element, This will break if the page attribute change
+                const parentControlZone = this.getParentControlZone();
 
-            if (this.displayMode === DisplayMode.Edit) {
+                if (this.displayMode === DisplayMode.Edit) {
 
-                if (parentControlZone) {
-                    parentControlZone.removeAttribute('style');
-                }
+                    if (parentControlZone) {
+                        parentControlZone.removeAttribute('style');
+                    }
 
-                renderRootElement = React.createElement('div', {},
-                    React.createElement(
-                        MessageBar, {
-                        messageBarType: MessageBarType.info,
-                    },
-                        Text.format("Webpart hidden before initial search")
-                    ),
-                    renderRootElement
-                );
-            } else {
-                renderRootElement = null;
+                    renderRootElement = React.createElement('div', {},
+                        React.createElement(
+                            MessageBar, {
+                            messageBarType: MessageBarType.info,
+                        },
+                            Text.format("Webpart hidden before initial search")
+                        ),
+                        renderRootElement
+                    );
+                } else {
+                    renderRootElement = null;
 
-                // Reset data source information
-                this._currentDataResultsSourceData = {
-                    availableFieldsFromResults: [],
-                    availablefilters: []
-                };
+                    // Reset data source information
+                    this._currentDataResultsSourceData = {
+                        availableFieldsFromResults: [],
+                        availablefilters: []
+                    };
 
-                // Remove margin and padding for the empty control zone
-                if (parentControlZone) {
-                    parentControlZone.setAttribute('style', 'margin-top:0px;padding:0px');
+                    // Remove margin and padding for the empty control zone
+                    if (parentControlZone) {
+                        parentControlZone.setAttribute('style', 'margin-top:0px;padding:0px');
+                    }
                 }
             }
+        }
+        catch (e){
+            renderRootElement = React.createElement('div', {},
+            React.createElement(
+                MessageBar, {
+                messageBarType: MessageBarType.error,
+            },
+                Text.format(`Error: ${e}`)
+            ),
+            renderRootElement
+        );
         }
 
         // Error message
