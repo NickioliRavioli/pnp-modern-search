@@ -7,16 +7,23 @@
   "manifestVersion": 2,
   "requiresCustomScript": false,
   "supportsFullBleed": true,
-  "supportedHosts": ["SharePointWebPart", "SharePointFullPage", "TeamsTab", "TeamsPersonalApp"],
-
+  "supportedHosts": [
+    "SharePointWebPart"
+  ],
   "preconfiguredEntries": [{
-    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
-    "group": { "default": "Other" },
-    "title": { "default": "RecentlyUsedDocuments" },
-    "description": { "default": "Recently used documents of the user" },
-    "officeFabricIconFontName": "TextDocumentShared",
-    "properties": {
-      "description": "RecentlyUsedDocuments"
-    }
-  }]
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Other"
+      },
+      "title": {
+        "default": "Recently Used Documents"
+      },
+      "description": {
+        "default": "Recently used documents of the user"
+      },
+      "officeFabricIconFontName": "TextDocumentShared",
+      "properties": {
+        "description": "RecentlyUsedDocuments"
+      }
+    }]
 }
