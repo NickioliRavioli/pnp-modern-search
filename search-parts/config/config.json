@@ -25,12 +25,6 @@
                 "entrypoint": "./lib/webparts/searchVerticals/SearchVerticalsWebPart.js",
                 "manifest": "./src/webparts/searchVerticals/SearchVerticalsWebPart.manifest.json"
             }]
-        },
-        "recently-used-documents-web-part": {
-            "components": [{
-                "entrypoint": "./lib/webparts/recentlyUsedDocuments/RecentlyUsedDocumentsWebPart.js",
-                "manifest": "./src/webparts/recentlyUsedDocuments/RecentlyUsedDocumentsWebPart.manifest.json"
-            }]
         }
     },
     "externals": {
@@ -40,7 +34,6 @@
         "SearchFiltersWebPartStrings": "lib/webparts/searchFilters/loc/{locale}.js",
         "SearchBoxWebPartStrings": "lib/webparts/searchBox/loc/{locale}.js",
         "SearchVerticalsWebPartStrings": "lib/webparts/searchVerticals/loc/{locale}.js",
-        "RecentlyUsedDocumentsWebPartStrings": "lib/webparts/recentlyUsedDocuments/loc/{locale}.js",
         "CommonStrings": "lib/loc/{locale}.js",
         "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js",
         "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js"

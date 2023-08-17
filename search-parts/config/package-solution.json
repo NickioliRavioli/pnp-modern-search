@@ -3,7 +3,7 @@
     "solution": {
         "name": "IScape - PnP Modern Search - v4",
         "id": "59903278-dd5d-4e9e-bef6-562aae716b8b",
-        "version": "1.0.0.4",
+        "version": "1.0.0.5",
         "includeClientSideAssets": true,
         "skipFeatureDeployment": true,
         "isDomainIsolated": false,
